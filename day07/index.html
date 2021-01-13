@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            /* --loading-color: #0E9; */
+            --loading-color: purple;
+            /* --loading-color: blue; */
+            /* --loading-color: red; */
+            /* --loading-color: #0E9; */
+        }
+        body {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+        }
+        .body {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body, html {
+            height: 100vh;
+            /* background: black; */
+        }
+    </style>
+    <style>
+        .loading-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .loading-area-around-n-around {
+            width: 75px;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 15px;
+        }
+        .loading-area-around-n-around .loading_bar{
+            position: absolute;
+            width: 50%;
+            height: 10px;
+            border-radius: 2px;
+            background: var(--loading-color);
+        }
+        .loading-area-around-n-around .loading_bar {
+            animation: loading-around 1.5s linear infinite both;
+        }
+
+        @keyframes loading-around {
+            0% {
+                width: 0%;
+                left: 0;
+            }
+            50% {
+                width: 100%;
+                right: 0;
+            }
+            100% {
+                width: 2%;
+                right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="body">
+        <!-- <div class="loading-container"> -->
+            <div class="loading-area-around-n-around">
+                <div class="loading_bar"></div>
+            </div>
+        <!-- </div> -->
+    </div>
+</body>
+</html>

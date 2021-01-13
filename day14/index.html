@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            /* --loading-color: #0E9; */
+            --loading-color: purple;
+            /* --loading-color: blue; */
+            /* --loading-color: red; */
+            /* --loading-color: #0E9; */
+        }
+        body {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+        }
+        .body {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body, html {
+            height: 100vh;
+            /* background: black; */
+        }
+    </style>
+    <style>
+        .loading-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .loading-area-circles-spinning {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .loading-area-circles-spinning .loading-first-ring,
+        .loading-first-ring .loading-second-ring,
+        .loading-second-ring .loading-third-ring,
+        .loading-third-ring .loading-fourth-ring {
+            width: 65px;
+            height: 65px;
+            border: 4px solid var(--loading-color);
+            border-top: 4px solid transparent;
+            border-radius: 50%;
+            animation: loading-spinning-circle-inverted 6s linear infinite both;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .loading-first-ring .loading-second-ring {
+            width: 50px;
+            height: 50px;
+            animation: loading-spinning-circle 3s linear infinite both;
+        }
+        .loading-second-ring .loading-third-ring {
+            width: 35px;
+            height: 35px;
+            animation: loading-spinning-circle-inverted 1.5s linear infinite both;
+        }
+        .loading-third-ring .loading-fourth-ring {
+            width: 20px;
+            height: 20px;
+            animation: loading-spinning-circle .75s linear infinite both;
+        }
+
+        @keyframes loading-spinning-circle {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes loading-spinning-circle-inverted {
+            from {
+                transform: rotate(360deg);
+            }
+            to {
+                transform: rotate(0deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="body">
+        <!-- <div class="loading-container"> -->
+            <div class="loading-area-circles-spinning">
+                <div class="loading-first-ring">
+                    <div class="loading-second-ring">
+                        <div class="loading-third-ring">
+                            <div class="loading-fourth-ring"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- </div> -->
+    </div>
+</body>
+</html>

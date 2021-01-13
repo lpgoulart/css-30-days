@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        :root {
+            /* --loading-color: #0E9; */
+            --loading-color: purple;
+            /* --loading-color: blue; */
+            /* --loading-color: red; */
+            /* --loading-color: #0E9; */
+        }
+        body {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .loading-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .loading-area {
+            transform: scale(.2);
+        }
+        .loading-area .loading-area-blur {
+            position: relative;
+            height: 512px;
+            width: 512px;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .loading-area .loading-area-blur .circle_01,
+        .loading-area .loading-area-blur .circle_02,
+        .loading-area .loading-area-blur .circle_03,
+        .loading-area .loading-area-blur .circle_04,
+        .loading-area .loading-area-blur .circle_05 {
+            filter: blur(50px);
+        }
+        .loading-area .loading-area-blur .circle_01 {
+            position: absolute;
+            width: 390px;
+            height: 390px;
+            border-radius: 50%;
+            background: purple;
+            top: -195px;
+            left: -195px;
+            z-index: 1;
+            animation: move-around-5 5s 1s linear infinite both;
+        }
+        @keyframes move-around-5 {
+            0% {
+                transform: translate(0px, 0px);
+            }
+            50% {
+                transform: translate(512px, 512px);
+            }
+            100%{
+                transform: translate(0px, 0px);
+            }
+        }
+        .loading-area .loading-area-blur .circle_02 {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: #8600FF;
+            bottom: -60px;
+            left: -30px;
+            z-index: 4;
+            animation: move-around 3s 1s linear infinite both;
+        }
+        @keyframes move-around {
+            0% {
+                transform: translate(0px, 0px);
+            }
+            50% {
+                transform: translate(280px, -80px);
+            }
+            100%{
+                transform: translate(0px, 0px);
+            }
+        }
+        .loading-area .loading-area-blur .circle_03 {
+            position: absolute;
+            width: 230px;
+            height: 230px;
+            border-radius: 50%;
+            background: #FFC285;
+            bottom: -60px;
+            left: 50px;
+            z-index: 2;
+            animation: move-around-2 3s linear infinite both;
+        }
+        @keyframes move-around-2 {
+            0% {
+                transform: translate(0px, 0px);
+            }
+            50% {
+                transform: translate(30px, -180px);
+            }
+            100%{
+                transform: translate(0px, 0px);
+            }
+        }
+        .loading-area .loading-area-blur .circle_04 {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: #FF0000;
+            bottom: -60px;
+            left: 200px;
+            z-index: 4;
+            animation: move-around-3 3s 2s linear infinite both;
+        }
+        @keyframes move-around-3 {
+            0% {
+                transform: translate(0px, 0px);
+            }
+            50% {
+                transform: translate(100px, -380px);
+            }
+            100%{
+                transform: translate(0px, 0px);
+            }
+        }
+        .loading-area .loading-area-blur .circle_05 {
+            position: absolute;
+            width: 390px;
+            height: 390px;
+            border-radius: 50%;
+            background: #B6E1EF;
+            top: 80px;
+            right: -195px;
+            z-index: 3;
+            animation: move-around-4 3s linear infinite both;
+        }
+        @keyframes move-around-4 {
+            0% {
+                transform: translate(0px, 0px);
+            }
+            50% {
+                transform: translate(-250px, 0px);
+            }
+            100%{
+                transform: translate(0px, 0px);
+            }
+        }
+    </style>  
+
+
+</head>
+<body>
+    <div class="loading-container">
+        <div class="loading-area">
+            <div class="loading-area-blur">
+                <div class="circle_01"></div>
+                <div class="circle_02"></div>
+                <div class="circle_03"></div>
+                <div class="circle_04"></div>
+                <div class="circle_05"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            /* --loading-color: #0E9; */
+            --loading-color: purple;
+            /* --loading-color: blue; */
+            /* --loading-color: red; */
+            /* --loading-color: #0E9; */
+        }
+        body {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+        }
+        .body {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body, html {
+            height: 100vh;
+            /* background: black; */
+        }
+    </style>
+    <style>
+        .loading-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .loading-area-circles-dna {
+            transform: rotate(-225deg) translate(-60px, 0px);
+        }
+        .loading-area-circles-dna .up,
+        .loading-area-circles-dna .down {
+            width: 115px;
+            position: absolute;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 99;
+        }
+        .loading-area-circles-dna .middle {
+            width: 110px;
+            height: 30px;
+            position: absolute;
+            transform: translate(0px, -15px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .loading-area-circles-dna .up .loading_circle1,
+        .loading-area-circles-dna .up .loading_circle2,
+        .loading-area-circles-dna .up .loading_circle3,
+        .loading-area-circles-dna .up .loading_circle4,
+        .loading-area-circles-dna .up .loading_circle5,
+        .loading-area-circles-dna .up .loading_circle6,
+        .loading-area-circles-dna .up .loading_circle7,
+        .loading-area-circles-dna .up .loading_circle8,
+        .loading-area-circles-dna .up .loading_circle9,
+        .loading-area-circles-dna .up .loading_circle10 {
+            width: 10px;
+            height: 10px;
+            border-radius: 100%;
+            background: var(--loading-color);
+        }
+        .loading-area-circles-dna .down .loading_circle1,
+        .loading-area-circles-dna .down .loading_circle2,
+        .loading-area-circles-dna .down .loading_circle3,
+        .loading-area-circles-dna .down .loading_circle4, 
+        .loading-area-circles-dna .down .loading_circle5,
+        .loading-area-circles-dna .down .loading_circle6,
+        .loading-area-circles-dna .down .loading_circle7,
+        .loading-area-circles-dna .down .loading_circle8,
+        .loading-area-circles-dna .down .loading_circle9,
+        .loading-area-circles-dna .down .loading_circle10 {
+            width: 10px;
+            height: 10px;
+            border-radius: 100%;
+            background: var(--loading-color);
+        }
+        .loading-area-circles-dna .middle .loading_bar1,
+        .loading-area-circles-dna .middle .loading_bar2,
+        .loading-area-circles-dna .middle .loading_bar3,
+        .loading-area-circles-dna .middle .loading_bar4, 
+        .loading-area-circles-dna .middle .loading_bar5,
+        .loading-area-circles-dna .middle .loading_bar6,
+        .loading-area-circles-dna .middle .loading_bar7,
+        .loading-area-circles-dna .middle .loading_bar8,
+        .loading-area-circles-dna .middle .loading_bar9,
+        .loading-area-circles-dna .middle .loading_bar10 {
+            width: 5px;
+            transform: translateX(2.5px);
+            height: 30px;
+            background: var(--loading-color);
+            opacity: .2;
+        }
+        .loading-area-circles-dna .middle .loading_bar1 {
+            animation: loading-bar-expand 2s infinite both;
+        }
+        .loading-area-circles-dna .middle .loading_bar2 {
+            animation: loading-bar-expand 2s .2s infinite both;
+        }
+        .loading-area-circles-dna .middle .loading_bar3 {
+            animation: loading-bar-expand 2s .4s infinite both;
+        }
+        .loading-area-circles-dna .middle .loading_bar4 {
+            animation: loading-bar-expand 2s .6s infinite both;
+        }
+        .loading-area-circles-dna .middle .loading_bar5 {
+            animation: loading-bar-expand 2s .8s infinite both;
+        }
+        .loading-area-circles-dna .middle .loading_bar6 {
+            animation: loading-bar-expand 2s 1s infinite both;
+        }
+        .loading-area-circles-dna .middle .loading_bar7 {
+            animation: loading-bar-expand 2s 1.2s infinite both;
+        }
+        .loading-area-circles-dna .middle .loading_bar8 {
+            animation: loading-bar-expand 2s 1.4s infinite both;
+        }
+        .loading-area-circles-dna .middle .loading_bar9 {
+            animation: loading-bar-expand 2s 1.6s infinite both;
+        }
+        .loading-area-circles-dna .middle .loading_bar10 {
+            animation: loading-bar-expand 2s 1.8s infinite both;
+        }
+        
+        @keyframes loading-bar-expand {
+            0% {
+                height: 30px;
+            }
+            25% {
+                height: 12px;
+            }
+            50% {
+                height: 20px;
+            }
+            75% {
+                height: 12px;
+            }
+            100% {
+                height: 30px;
+            }
+        }
+        .loading-area-circles-dna .up .loading_circle1 {
+            animation: loading-bounce 2s infinite both;
+        }
+        .loading-area-circles-dna .up .loading_circle2 {
+            animation: loading-bounce 2s .2s infinite both;
+        }
+        .loading-area-circles-dna .up .loading_circle3 {
+            animation: loading-bounce 2s .4s infinite both;
+        }
+        .loading-area-circles-dna .up .loading_circle4 {
+            animation: loading-bounce 2s .6s infinite both;
+        }
+        .loading-area-circles-dna .up .loading_circle5 {
+            animation: loading-bounce 2s .8s infinite both;
+        }
+        .loading-area-circles-dna .up .loading_circle6 {
+            animation: loading-bounce 2s 1s infinite both;
+        }
+        .loading-area-circles-dna .up .loading_circle7 {
+            animation: loading-bounce 2s 1.2s infinite both;
+        }
+        .loading-area-circles-dna .up .loading_circle8{
+            animation: loading-bounce 2s 1.4s infinite both;
+        }
+        .loading-area-circles-dna .up .loading_circle9{
+            animation: loading-bounce 2s 1.6s infinite both;
+        }
+        .loading-area-circles-dna .up .loading_circle10{
+            animation: loading-bounce 2s 1.8s infinite both;
+        }
+
+        .loading-area-circles-dna .down .loading_circle1 {
+            animation: loading-bounce-inverted 2s infinite both;
+        }
+        .loading-area-circles-dna .down .loading_circle2 {
+            animation: loading-bounce-inverted 2s .2s infinite both;
+        }
+        .loading-area-circles-dna .down .loading_circle3 {
+            animation: loading-bounce-inverted 2s .4s infinite both;
+        }
+        .loading-area-circles-dna .down .loading_circle4 {
+            animation: loading-bounce-inverted 2s .6s infinite both;
+        }
+        .loading-area-circles-dna .down .loading_circle5 {
+            animation: loading-bounce-inverted 2s .8s infinite both;
+        }
+        .loading-area-circles-dna .down .loading_circle6 {
+            animation: loading-bounce-inverted 2s 1s infinite both;
+        }
+        .loading-area-circles-dna .down .loading_circle7 {
+            animation: loading-bounce-inverted 2s 1.2s infinite both;
+        }
+        .loading-area-circles-dna .down .loading_circle8{
+            animation: loading-bounce-inverted 2s 1.4s infinite both;
+        }
+        .loading-area-circles-dna .down .loading_circle9{
+            animation: loading-bounce-inverted 2s 1.6s infinite both;
+        }
+        .loading-area-circles-dna .down .loading_circle10{
+            animation: loading-bounce-inverted 2s 1.8s infinite both;
+        }
+
+        @keyframes loading-bounce {
+            0% {
+                transform: translateY(10px);
+                opacity: .8;
+            }
+            50% {
+                transform: translateY(-20px);
+                opacity: .2;
+            }
+            100% {
+                transform: translateY(10px);
+                opacity: .8;
+            }
+        }
+        @keyframes loading-bounce-inverted {
+            0% {
+                transform: translateY(-20px);
+                opacity: .8;
+            }
+            50% {
+                transform: translateY(10px);
+                opacity: .2;
+            }
+            100% {
+                transform: translateY(-20px);
+                opacity: .8;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-container">
+        <div class="loading-area-circles-dna">
+            <div class="down">
+                <div class="loading_circle1"></div>
+                <div class="loading_circle2"></div>
+                <div class="loading_circle3"></div>
+                <div class="loading_circle4"></div>
+                <div class="loading_circle5"></div>
+                <div class="loading_circle6"></div>
+                <div class="loading_circle7"></div>
+                <div class="loading_circle8"></div>
+                <div class="loading_circle9"></div>
+                <div class="loading_circle10"></div>
+            </div>
+            <div class="middle">
+                <div class="loading_bar1"></div>
+                <div class="loading_bar2"></div>
+                <div class="loading_bar3"></div>
+                <div class="loading_bar4"></div>
+                <div class="loading_bar5"></div>
+                <div class="loading_bar6"></div>
+                <div class="loading_bar7"></div>
+                <div class="loading_bar8"></div>
+                <div class="loading_bar9"></div>
+                <div class="loading_bar10"></div>
+            </div>
+            <div class="up">
+                <div class="loading_circle1"></div>
+                <div class="loading_circle2"></div>
+                <div class="loading_circle3"></div>
+                <div class="loading_circle4"></div>
+                <div class="loading_circle5"></div>
+                <div class="loading_circle6"></div>
+                <div class="loading_circle7"></div>
+                <div class="loading_circle8"></div>
+                <div class="loading_circle9"></div>
+                <div class="loading_circle10"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

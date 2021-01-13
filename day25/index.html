@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        :root {
+            /* --loading-color: #0E9; */
+            --loading-color: purple;
+            /* --loading-color: blue; */
+            /* --loading-color: red; */
+            /* --loading-color: #0E9; */
+        }
+        body {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body, html {
+            height: 100vh;
+            /* background: black; */
+        }
+    </style>
+
+    <style>
+        .loading-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .loading-area-arc {
+            width: 50px;
+            height: 10px;
+            position: relative;
+        }
+        .loading-area-arc .span01,
+        .loading-area-arc .span02,
+        .loading-area-arc .span03,
+        .loading-area-arc .span04,
+        .loading-area-arc .span05,
+        .loading-area-arc .span06,
+        .loading-area-arc .span07 {
+            width: 50px;
+            height: 10px;
+            position: absolute;
+            transform: rotate(90deg);
+        }
+        .loading-area-arc .span01 .loading_circle1,
+        .loading-area-arc .span02 .loading_circle2,
+        .loading-area-arc .span03 .loading_circle3,
+        .loading-area-arc .span04 .loading_circle4,
+        .loading-area-arc .span05 .loading_circle5,
+        .loading-area-arc .span06 .loading_circle6,
+        .loading-area-arc .span07 .loading_circle7 {
+            width: 10px;
+            height: 10px;
+            border-radius: 100%;
+            background: var(--loading-color);
+            opacity: .5;
+        }
+
+        .loading-area-arc .span01 {
+            animation: loading-blink 2.5s .04s cubic-bezier(0.19, 1, 0.22, 1) infinite both;
+        }
+        .loading-area-arc .span02 {
+            animation: loading-blink 2.5s .15s cubic-bezier(0.19, 1, 0.22, 1) infinite both;
+        }
+        .loading-area-arc .span03 {
+            animation: loading-blink 2.5s .25s cubic-bezier(0.19, 1, 0.22, 1) infinite both;
+        }
+        .loading-area-arc .span04 {
+            animation: loading-blink 2.5s .35s cubic-bezier(0.19, 1, 0.22, 1) infinite both;
+        }
+        .loading-area-arc .span05 {
+            animation: loading-blink 2.5s .45s cubic-bezier(0.19, 1, 0.22, 1) infinite both;
+        }
+        .loading-area-arc .span06 {
+            animation: loading-blink 2.5s .55s cubic-bezier(0.19, 1, 0.22, 1) infinite both;
+        }
+        .loading-area-arc .span07 {
+            animation: loading-blink 2.5s .65s cubic-bezier(0.19, 1, 0.22, 1) infinite both;
+        }
+
+        @keyframes loading-blink {
+            0% {
+                transform: rotate(90deg) 
+            }
+            100% {
+                transform: rotate(450deg)
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="loading-container">
+        <div class="loading-area-arc">
+            <div class="span01"><div class="loading_circle1"></div></div>
+            <div class="span02"><div class="loading_circle2"></div></div>
+            <div class="span03"><div class="loading_circle3"></div></div>
+            <div class="span04"><div class="loading_circle4"></div></div>
+            <div class="span05"><div class="loading_circle5"></div></div>
+            <div class="span06"><div class="loading_circle6"></div></div>
+            <div class="span07"><div class="loading_circle7"></div></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        :root {
+            /* --loading-color: #0E9; */
+            --loading-color: purple;
+            /* --loading-color: blue; */
+            /* --loading-color: red; */
+            /* --loading-color: #0E9; */
+        }
+        body {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .loading-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .loading-area-square {
+            position: relative;
+            height: 40px;
+            width: 40px;
+            padding: 10px;
+        }
+        .loading-area-square .loading_circle1,
+        .loading-area-square .loading_circle2,
+        .loading-area-square .loading_circle3,
+        .loading-area-square .loading_circle4 {
+            height: 20px;
+            width: 20px;
+            margin: 10px;
+            background: var(--loading-color);
+            opacity: .75;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 100px;
+        }
+        .loading-area-square .loading_circle1 {
+            animation: loading-effect 2s .5s infinite linear both;
+            z-index: 99;
+        }
+        .loading-area-square .loading_circle2 {
+            animation: loading-effect 2s 1s infinite linear both;
+            background: var(--loading-color);
+            opacity: .65;
+        }
+        .loading-area-square .loading_circle3 {
+            animation: loading-effect 2s 1.5s infinite linear both;
+            background: var(--loading-color);
+            opacity: .45;
+        }
+        .loading-area-square .loading_circle4 {
+            animation: loading-effect 2s 2s infinite linear both;
+            background: var(--loading-color);
+            opacity: .35;
+        }
+
+        @keyframes loading-effect {
+            0%{
+                transform: translate(0,0);
+            }
+            25% {
+                transform: translate(120%,0);
+            }
+            50% {
+                transform: translate(120%,120%);
+            }
+            75% {
+                transform: translate(0,120%);
+            }
+            100% {
+                transform: translate(0,0);
+            }
+        }
+    </style>  
+
+
+</head>
+<body>
+    <div class="loading-container">
+        <div class="loading-area-square">
+            <div class="loading_circle1"></div>
+            <div class="loading_circle2"></div>
+            <div class="loading_circle3"></div>
+            <div class="loading_circle4"></div>
+        </div>
+    </div>
+
+</body>
+</html>
