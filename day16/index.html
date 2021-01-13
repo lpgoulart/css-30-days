@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            /* --loading-color: #0E9; */
+            --loading-color: purple;
+            /* --loading-color: blue; */
+            /* --loading-color: red; */
+            /* --loading-color: #0E9; */
+        }
+        body {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body, html {
+            height: 100vh;
+            /* background: black; */
+        }
+    </style>
+    <style>
+        .loading-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .loading-area-folding {
+            width: 40px;
+            height: 40px;
+            position: relative;
+            transform: rotateZ(45deg);
+        }
+
+        .loading-area-folding .loading-square {
+            float: left;
+            width: 50%;
+            height: 50%;
+            position: relative;
+            background: var(--loading-color);
+        }
+        .loading-area-folding .loading-square_1 {
+            animation: move-up 2s ease-in-out infinite; 
+        }
+        .loading-area-folding .loading-square_2 {
+            animation: move-right 2s .3s ease-in-out infinite; 
+        }
+        .loading-area-folding .loading-square_3 {
+            animation: move-down 2s .6s ease-in-out infinite; 
+        }
+        .loading-area-folding .loading-square_4 {
+            animation: move-left 2s .9s ease-in-out infinite; 
+        }
+
+
+        @keyframes move-up {
+            0% {
+                transform: translate(0%, 0%);
+            }
+            20% {
+                transform: translate(-50%, -50%) rotate(180deg);
+                border-radius: 50%;
+            }
+            40% {
+                transform: translate(0%, 0%);
+                border-radius: 0;
+            }
+        }
+
+        @keyframes move-right {
+            0% {
+                transform: translate(0%, 0%);
+            }
+            20% {
+                transform: translate(50%, -50%) rotate(180deg);
+                border-radius: 50%;
+            }
+            40% {
+                transform: translate(0%, 0%);
+                border-radius: 0;
+            }
+        }
+
+        @keyframes move-down {
+            0% {
+                transform: translate(0%, 0%);
+            }
+            20% {
+                transform: translate(50%, 50%) rotate(180deg);
+                border-radius: 50%;
+            }
+            40% {
+                transform: translate(0%, 0%);
+                border-radius: 0;
+            }
+        }
+        
+        @keyframes move-left {
+            0% {
+                transform: translate(0%, 0%);
+            }
+            20% {
+                transform: translate(-50%, 50%) rotate(180deg);
+                border-radius: 50%;
+            }
+            40% {
+                transform: translate(0%, 0%);
+                border-radius: 0;
+            }
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div class="loading-container">
+        <div class="loading-area-folding">
+            <div class="loading-square_1 loading-square"></div>
+            <div class="loading-square_2 loading-square"></div>
+            <div class="loading-square_4 loading-square"></div>
+            <div class="loading-square_3 loading-square"></div>
+        </div>
+    </div>
+</body>
+</html>

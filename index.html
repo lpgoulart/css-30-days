@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card-list {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .card-of-day {
+            text-align: center;
+            width: 150px;
+            margin: 5px 20px;
+        }
+        .container {
+            max-width: 100%;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        30 days of CSS
+    </h1>
+
+    <div class="container">
+        <div id="put-here" class="card-list">
+        </div>
+    </div>
+
+    <script>
+        var div = document.getElementById("put-here")
+
+        var csss = [
+            {
+                day: "day01",
+                title: "Day 01"
+            },
+            {
+                day: "day02",
+                title: "Day 02"
+            },
+            {
+                day: "day03",
+                title: "Day 03"
+            },
+            {
+                day: "day04",
+                title: "Day 04"
+            },
+            {
+                day: "day05",
+                title: "Day 05"
+            },
+            {
+                day: "day06",
+                title: "Day 06"
+            },
+            {
+                day: "day07",
+                title: "Day 07"
+            },
+            {
+                day: "day08",
+                title: "Day 08"
+            },
+            {
+                day: "day09",
+                title: "Day 09"
+            },
+            {
+                day: "day10",
+                title: "Day 10"
+            },
+            {
+                day: "day11",
+                title: "Day 11"
+            },
+            {
+                day: "day12",
+                title: "Day 12"
+            },
+            {
+                day: "day13",
+                title: "Day 13"
+            },
+            {
+                day: "day14",
+                title: "Day 14"
+            },
+            {
+                day: "day15",
+                title: "Day 15"
+            },
+            {
+                day: "day16",
+                title: "Day 16"
+            },
+            {
+                day: "day17",
+                title: "Day 17"
+            },
+            {
+                day: "day18",
+                title: "Day 18"
+            },
+            {
+                day: "day19",
+                title: "Day 19"
+            },
+            {
+                day: "day20",
+                title: "Day 20"
+            },
+            {
+                day: "day21",
+                title: "Day 21"
+            },
+            {
+                day: "day22",
+                title: "Day 22"
+            },
+            {
+                day: "day23",
+                title: "Day 23"
+            },
+            {
+                day: "day24",
+                title: "Day 24"
+            },
+            {
+                day: "day25",
+                title: "Day 25"
+            },
+            {
+                day: "day26",
+                title: "Day 26"
+            },
+            {
+                day: "day27",
+                title: "Day 27"
+            },
+            {
+                day: "day28",
+                title: "Day 28"
+            },
+            {
+                day: "day29",
+                title: "Day 29"
+            },
+        ]
+
+        csss.map(item => {
+            div.innerHTML += `
+                <div class="card-of-day">
+                    <iframe src="./${item.day}/index.html" frameborder="0" width="150" height="130"></iframe>
+                    <h5>${item.title}</h5>
+                </div>
+            `
+        })
+    </script>
+</body>
+</html>

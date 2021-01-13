@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            /* --loading-color: #0E9; */
+            --loading-color: purple;
+            /* --loading-color: blue; */
+            /* --loading-color: red; */
+            /* --loading-color: #0E9; */
+        }
+        body {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+        }
+        .body {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body, html {
+            height: 100vh;
+            /* background: black; */
+        }
+    </style>
+    <style>
+        .loading-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .loading-area-single-square {
+            position: relative;
+            width: 50px;
+            height: 50px;
+        }
+        .loading-area-single-square .loading_square_01,
+        .loading-area-single-square .loading_square_02 {
+            position: absolute;
+            box-sizing: border-box;
+            width: 30px;
+            height: 30px;
+            box-shadow: 0 0 0 3px var(--loading-color);
+        }
+        .loading-area-single-square .loading_square_01 {
+            animation: spacing-squere 2s linear infinite both;
+        }
+        .loading-area-single-square .loading_square_02 {
+            animation: spacing-squere 2s 1s linear infinite both;
+        }
+
+        @keyframes spacing-squere {
+            0% {
+                width: 30px;
+                height: 30px;
+            }
+            10%{
+                width: 120%;
+                height: 30px;
+                transform: translate(0,0);
+            }
+            20% {
+                width: 30px;
+                height: 30px;
+                transform: translate(120%,0);
+            }
+            30% {
+                width: 30px;
+                height: 120%;
+                transform: translate(120%,0);
+            }
+            40% {
+                width: 30px;
+                height: 30px;
+                transform: translate(120%,120%);
+            }
+            50% {
+                width: 120%;
+                height: 30px;
+                transform: translate(0,120%);
+            }
+            60% {
+                width: 30px;
+                height: 30px;
+                transform: translate(0,120%);
+            }
+            70% {
+                width: 30px;
+                height: 100%;
+                transform: translate(0,0);
+            }
+            80% {
+                width: 30px;
+                height: 30px;
+                transform: translate(0,0);
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <div class="body">
+        <!-- <div class="loading-container"> -->
+            <div class="loading-area-single-square">
+                <div class="loading_square_01"></div>
+                <div class="loading_square_02"></div>
+            </div>
+        <!-- </div> -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        :root {
+            /* --loading-color: #0E9; */
+            --loading-color: rgb(143, 47, 143);
+            /* --loading-color: blue; */
+            /* --loading-color: red; */
+            /* --loading-color: #0E9; */
+        }
+        body {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .loading-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .loading-area-square {
+            position: relative;
+            height: 40px;
+            width: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            border-radius: 100%;
+        }
+        .loading-area-square .loading_circle1,
+        .loading-area-square .loading_circle2,
+        .loading-area-square .loading_circle3,
+        .loading-area-square .loading_circle4 {
+            height: 20px;
+            width: 20px;
+            background: var(--loading-color);
+            position: relative;
+        }
+        .loading-area-square .loading_circle1 {
+            border-top-left-radius: 100%;
+        }
+        .loading-area-square .loading_circle3 {
+            border-bottom-left-radius: 100%;
+        }
+        .loading-area-square .loading_circle2 {
+            border-top-right-radius: 100%;
+            animation: top-mouth .8s linear infinite both;
+        }
+        .loading-area-square .loading_circle4 {
+            border-bottom-right-radius: 100%;
+            transform: rotate(0deg) translate(0,0);
+            animation: bottom-mouth .8s linear infinite both;
+        }
+
+        @keyframes top-mouth {
+            0% {
+                transform: rotate(0deg) translate(0, 0);
+            }
+            25% {
+                transform: rotate(-20deg) translate(-3px, -4px);
+            }
+            50% {
+                transform: rotate(-45deg) translate(-4px, -10px);
+            }
+            75% {
+                transform: rotate(-20deg) translate(-3px, -4px);
+            }
+            100% {
+                transform: rotate(0deg) translate(0px,0px);
+            }
+        }
+        @keyframes bottom-mouth {
+            0% {
+                transform: rotate(0deg) translate(0, 0);
+            }
+            25% {
+                transform: rotate(20deg) translate(-3px, 4px);
+            }
+            50% {
+                transform: rotate(45deg) translate(-4px,10px);
+            }
+            75% {
+                transform: rotate(20deg) translate(-3px, 4px);
+            }
+            100% {
+                transform: rotate(0deg) translate(0px,0px);
+            }
+        }
+
+        .loading-area-circles-fade {
+            width: 70px;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            transform: translateX(-15px);
+            overflow: hidden;
+        }
+        .loading-area-circles-fade .loading_circle1,
+        .loading-area-circles-fade .loading_circle2,
+        .loading-area-circles-fade .loading_circle3,
+        .loading-area-circles-fade .loading_circle4 {
+            width: 10px;
+            height: 10px;
+            border-radius: 100%;
+            background: var(--loading-color);
+            /* opacity: .5; */
+            transform: translateX(15px);
+        }
+        .loading-area-circles-fade .loading_circle1 {
+            animation: loading-roll .8s linear infinite both;
+        }
+        .loading-area-circles-fade .loading_circle2 {
+            animation: loading-roll .8s .2s linear infinite both;
+        }
+        .loading-area-circles-fade .loading_circle3 {
+            animation: loading-roll .8s .4s linear infinite both;
+        }
+        .loading-area-circles-fade .loading_circle4 {
+            animation: loading-roll .8s .6s linear infinite both;
+        }
+
+        @keyframes loading-roll {
+            from {
+                transform: translateX(27px);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+    </style>  
+
+
+</head>
+<body>
+    <div class="loading-container">
+        <div class="loading-area-square">
+            <div class="loading_circle1"></div>
+            <div class="loading_circle2"></div>
+            <div class="loading_circle3"></div>
+            <div class="loading_circle4"></div>
+        </div>
+
+        <div class="loading-area-circles-fade">
+            <div class="loading_circle1"></div>
+            <div class="loading_circle2"></div>
+            <div class="loading_circle3"></div>
+            <div class="loading_circle4"></div>
+        </div>
+    </div>
+
+</body>
+</html>

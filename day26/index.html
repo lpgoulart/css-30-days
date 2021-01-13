@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        :root {
+            /* --loading-color: #0E9; */
+            --loading-color: purple;
+            /* --loading-color: blue; */
+            /* --loading-color: red; */
+            /* --loading-color: #0E9; */
+        }
+        body {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .loading-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .loading-area-square {
+            position: relative;
+            height: 40px;
+            width: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            border-radius: 100%;
+            opacity: .7;
+        }
+        .loading-area-square .loading_circle1,
+        .loading-area-square .loading_circle2,
+        .loading-area-square .loading_circle3,
+        .loading-area-square .loading_circle4 {
+            height: 20px;
+            width: 20px;
+            background: var(--loading-color);
+            position: relative;
+        }
+        .loading-area-square .loading_circle1 {
+            border-top-left-radius: 100%;
+            animation: loading-effect-top-left 2s 1s infinite cubic-bezier(0.165, 0.84, 0.44, 1) both;
+        }
+        .loading-area-square .loading_circle2 {
+            border-top-right-radius: 100%;
+            animation: loading-effect-top-right 2s 1.5s infinite cubic-bezier(0.165, 0.84, 0.44, 1) both;
+        }
+        .loading-area-square .loading_circle3 {
+            border-bottom-left-radius: 100%;
+            animation: loading-effect-bottom-right 2s 2.5s infinite cubic-bezier(0.165, 0.84, 0.44, 1) both;
+        }
+        .loading-area-square .loading_circle4 {
+            border-bottom-right-radius: 100%;
+            animation: loading-effect-bottom-left 2s 2s infinite cubic-bezier(0.165, 0.84, 0.44, 1) both;
+        }
+
+        @keyframes loading-effect-top-left {
+            0% {
+                transform: scale(1);
+            }
+            20% {
+                transform: scale(1.5) translate(-12px, -12px);
+            }
+            40% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes loading-effect-top-right {
+            0% {
+                transform: scale(1);
+            }
+            20% {
+                transform: scale(1.5) translate(12px, -12px);
+            }
+            40% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes loading-effect-bottom-right {
+            0% {
+                transform: scale(1);
+            }
+            20% {
+                transform: scale(1.5) translate(-12px, 12px);
+            }
+            40% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes loading-effect-bottom-left {
+            0% {
+                transform: scale(1);
+            }
+            20% {
+                transform: scale(1.5) translate(12px, 12px);
+            }
+            40% {
+                transform: scale(1);
+            }
+        }
+    </style>  
+
+
+</head>
+<body>
+    <div class="loading-container">
+        <div class="loading-area-square">
+            <div class="loading_circle1"></div>
+            <div class="loading_circle2"></div>
+            <div class="loading_circle3"></div>
+            <div class="loading_circle4"></div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        :root {
+            /* --loading-color: #0E9; */
+            --loading-color: purple;
+            /* --loading-color: blue; */
+            /* --loading-color: red; */
+            /* --loading-color: #0E9; */
+        }
+        body {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body, html {
+            height: 100vh;
+            /* background: lightcyan; */
+        }
+        .penguin-body {
+            transform: scale(.5);
+        }
+        .penguin {
+            border: 2px solid var(--loading-color);
+            width: 120px;
+            height: 120px;
+            padding: 20px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--loading-color);
+            position: relative;
+            animation: face-turn 5s linear infinite both;
+        }
+        .penguin .face {
+            border: 2px solid var(--loading-color);
+            border-top: 2px solid transparent;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: relative;
+            background: white;
+        }
+        .penguin .face-color {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: var(--loading-color);
+            border-top-right-radius: 0px;
+            border-top-left-radius: 45px;
+            transform: translate(20px, -19px) rotate(45deg);
+        }
+        .penguin .face .left-eye {
+            border: 2px solid var(--loading-color);
+            position: absolute;
+            top: 9px;
+            left: 6px;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 2px solid transparent;
+            border-left: 2px solid transparent;
+            transform: rotate(7deg);
+            z-index: 99;
+        }
+        .penguin .face .right-eye {
+            border: 2px solid var(--loading-color);
+            position: absolute;
+            top: 9px;
+            right: 6px;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 2px solid transparent;
+            border-left: 2px solid transparent;
+            transform: rotate(-97deg);
+            z-index: 99;
+        }
+        .penguin .face .left-eye .eye,
+        .penguin .face .right-eye .eye {
+            position: relative;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            z-index: 2;
+            background: var(--loading-color);
+            overflow: hidden;
+        }
+        .penguin .face .left-eye .eye {
+            transform: rotate(-7deg);
+        }
+        .penguin .face .right-eye .eye {
+            transform: rotate(97deg);
+        }
+
+        .penguin .face .left-eye .eye::before,
+        .penguin .face .right-eye .eye::before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            display: block;
+            transform: translateY(-100%);
+            background: white;
+            animation: blink-eye 3s 1s linear infinite both;
+        }
+
+        .penguin .face .left-eye .eyeColor,
+        .penguin .face .right-eye .eyeColor {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: white;
+        }
+        .penguin .face .nose {
+            border: 2px solid var(--loading-color);
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: 34%;
+            left: 38%;
+            transform: rotate(45deg);
+            border-radius: 5px;
+            overflow: hidden;
+            background: var(--loading-color);
+        }
+
+        @keyframes blink-eye {
+            0% {
+                transform: translateY(-100%);
+            }
+            10% {
+                transform: translateY(0%);
+            }
+            20% {
+                transform: translateY(-100%);
+            }
+            30% {
+                transform: translateY(0%);
+            }
+            40% {
+                transform: translateY(-100%);
+            }
+        }
+
+        @keyframes face-turn {
+            0%, 10% {
+                transform: rotate(0deg);    
+            }
+            10%, 70% {
+                transform: rotate(-20deg);    
+            }
+            80% {
+                transform: rotate(0deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="penguin-body">
+        <div class="penguin">
+            <div class="face">
+                <div class="face-color"></div>
+                <div class="left-eye">
+                    <div class="eye"></div>
+                    <div class="eyeColor"></div>
+                </div>
+                <div class="right-eye">
+                    <div class="eye"></div>
+                    <div class="eyeColor"></div>
+                </div>
+                <div class="nose"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

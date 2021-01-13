@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        :root {
+            /* --loading-color: #0E9; */
+            --loading-color: purple;
+            /* --loading-color: blue; */
+            /* --loading-color: red; */
+            /* --loading-color: #0E9; */
+        }
+        body {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+        }
+        .body {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body, html {
+            height: 100vh;
+            /* background: black; */
+        }
+    </style>
+
+    <style>
+        .loading-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .loading-area-circles-fade {
+            width: 50px;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .loading-area-circles-fade .loading_circle1,
+        .loading-area-circles-fade .loading_circle2,
+        .loading-area-circles-fade .loading_circle3,
+        .loading-area-circles-fade .loading_circle4 {
+            width: 10px;
+            height: 10px;
+            border-radius: 100%;
+            background: var(--loading-color);
+        }
+        .loading-area-circles-fade .loading_circle1 {
+            animation: loading-blink 2s infinite both;
+        }
+        .loading-area-circles-fade .loading_circle2 {
+            animation: loading-blink 2s .2s infinite both;
+        }
+        .loading-area-circles-fade .loading_circle3 {
+            animation: loading-blink 2s .4s infinite both;
+        }
+        .loading-area-circles-fade .loading_circle4 {
+            animation: loading-blink 2s .6s infinite both;
+        }
+
+        @keyframes loading-blink {
+            0% {
+                opacity: .2;
+            }
+            50% {
+                opacity: .8;
+            }
+            100% {
+                opacity: .2;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="body">
+        <!-- <div class="loading-container"> -->
+            <div class="loading-area-circles-fade">
+                <div class="loading_circle1"></div>
+                <div class="loading_circle2"></div>
+                <div class="loading_circle3"></div>
+                <div class="loading_circle4"></div>
+            </div>
+        <!-- </div> -->
+    </div>
+</body>
+</html>
